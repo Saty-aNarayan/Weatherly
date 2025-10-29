@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cityInput = document.getElementById("city-input");
   const themeToggle = document.getElementById("theme-toggle");
   const temperatureEl = document.getElementById("temperature");
+
   // Handle city search
   searchBtn.addEventListener("click", () => {
     const city = cityInput.value.trim();
@@ -20,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       fetchForecast(city);
     }
   });
-  temperatureEl.textContent = `${Math.round(data.main.temp)}°C`;
 
   // Handle theme switching
   let isDark = true;
@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fetch current weather
-
   async function fetchCurrentWeather(city = "Chennai") {
     try {
       const response = await fetch(
@@ -57,12 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       locationEl.textContent = `${data.name}, ${data.sys.country}`;
       summaryEl.textContent = `${data.weather[0].main} — ${data.weather[0].description}`;
+      temperatureEl.textContent = `${Math.round(data.main.temp)}°C`; // ✅ moved here
       weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       weatherIcon.alt = data.weather[0].description;
     } catch (err) {
       console.error("Error fetching weather:", err);
       summaryEl.textContent = "Could not load weather data 😢";
       locationEl.textContent = "Unknown";
+      temperatureEl.textContent = "--°C";
     }
   }
 
