@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchBtn = document.getElementById("search-btn");
   const cityInput = document.getElementById("city-input");
   const themeToggle = document.getElementById("theme-toggle");
-
+  const temperatureEl = document.getElementById("temperature");
   // Handle city search
   searchBtn.addEventListener("click", () => {
     const city = cityInput.value.trim();
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fetchForecast(city);
     }
   });
+  temperatureEl.textContent = `${Math.round(data.main.temp)}°C`;
 
   // Handle theme switching
   let isDark = true;
@@ -44,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fetch current weather
+
   async function fetchCurrentWeather(city = "Chennai") {
     try {
       const response = await fetch(
