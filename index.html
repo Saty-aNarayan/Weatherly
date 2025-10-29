@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherLy</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="panel cover">
+    <div class="search-bar">
+  <input type="text" id="city-input" placeholder="city name likh bhai..." />
+  <button id="search-btn">Search</button>
+    </div>
+
+    <h1>WeatherLy</h1>
+
+    <div class="heading-Bar">
+      <h2 id="location">Loading...</h2>
+      <h2 id="time">--:--</h2>
+      <h2 id="date">---</h2>
+    </div>
+
+    <div class="image-container">
+      <img id="weather-icon" src="" alt="Weather Icon" width="100">
+    </div>
+
+    <div class="panel Summary">
+      <h3>Summary</h3>
+      <p id="summary">Fetching weather data...</p>
+    </div>
+
+    <div class="panel spin">
+      <h3>Tip of the day!</h3>
+      <p>Stay hydrated 💧</p>
+    </div>
+
+    <div class="panel parent-forecast">
+      <div class="forecast">
+        <div class="card">Day1</div>
+        <div class="card">Day2</div>
+        <div class="card">Day3</div>
+        <div class="card">Day4</div>
+        <div class="card">Day5</div>
+      </div>
+    </div>
+
+    <div class="panel Footer-bar">
+      <button class="panel switch" id="theme-toggle">Light Theme</button>
+      <p>made by Satya</p>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
